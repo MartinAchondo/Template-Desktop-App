@@ -6,17 +6,13 @@ from sqlite3 import Error
 
 def create_connection():
     root = os.getcwd()
-    database = os.path.join(root, 'base', 'base.db')
-    mydb = Path(root + '/base.db')
+    database = os.path.join(root, '.base', 'base.db')
     dbconn = None
     try:
         dbconn = sqlite3.connect(database)
     except Error as e:
         print(e)
-    if mydb.exists():
-        return dbconn
-    else:
-        return dbconn 
+    return dbconn
 
 def create_table(command):
     connection = create_connection()

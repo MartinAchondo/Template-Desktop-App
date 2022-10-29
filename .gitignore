@@ -2,3 +2,4 @@
 /frontend/lib
 keys.json
 /base
+.venv

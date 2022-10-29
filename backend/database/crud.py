@@ -4,7 +4,7 @@ from functools import wraps
 
 class DB_Queries():
 
-    path_base = os.path.join(os.getcwd(),'base','base.db')
+    path_base = os.path.join(os.getcwd(),'.base','base.db')
     sqlite_connection = None
     sqlite_status = False
 
