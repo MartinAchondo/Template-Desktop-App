@@ -1,9 +1,6 @@
 CREATE TABLE IF NOT EXISTS clients_info (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    rut TEXT,
-    name TEXT,
-    phone TEXT,
-    mail TEXT
+    rut TEXT
 );
 
 CREATE TABLE IF NOT EXISTS clients_purchases (

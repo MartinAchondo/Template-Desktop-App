@@ -31,7 +31,7 @@ class Functions():
         return html
 
     def hideConsole(self):
-        cf.hideConsole
+        cf.hideConsole()
 
     def verify_keys(self):
         if cf.verify_keys():
@@ -43,10 +43,26 @@ class Functions():
         return False
 
 
+class Comunication_Fn():
+
+    def __init__(self) -> None:
+        pass
+
+
+    def create_and_return(self,data):
+        client = fn.Client()
+        ans = client.add_client(data)
+        ans2 = client.get_client(1)
+        return ans2
+
+
 if __name__=='__main__':
     
     func = Functions()
     eel.expose(func.pass_html)
+
+    comm = Comunication_Fn()
+    eel.expose(comm.create_and_return)
     
     app = Main()   
     app.start_app()
