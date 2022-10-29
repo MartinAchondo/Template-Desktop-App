@@ -1,0 +1,4 @@
+*__pycache__
+/frontend/lib
+keys.json
+/base
