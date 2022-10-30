@@ -4,6 +4,11 @@ $('document').ready(()=>{
         let inicio_obj = new Pages(this.id);
     });
 
+    eel.expose(changer)
+    function changer(){
+        $('h1').html('soooooooos')
+    }
+
 })
 
 class Pages {

@@ -1,5 +1,5 @@
 from backend.database.crud import DB_Queries as DB_SQLite
-
+import eel
 
 class Client(DB_SQLite):
 
@@ -14,4 +14,5 @@ class Client(DB_SQLite):
     def get_client(self,id):
         ans = self.sqlite_get_algunos_dic({'id':id},'clients_info')
         ans = ans[0]['rut']
+        eel.changer()
         return ans

@@ -13,26 +13,18 @@ class Main():
 
     def start_app(self):
         self.start_database()
-        self.eel.start('index.html')
+        ans = self.verify_keys()
+        if ans:
+            self.hideConsole()
+            self.eel.start('index.html')
 
     def start_database(self):
-        db.start()
-
-
-class Functions():
-
-    def __init__(self):
-        pass
-
-    def pass_html(self,path):
-        path = os.path.join(os.getcwd(),'frontend',path,path+'.html')
-        with codecs.open(path,'r','utf-8') as file:
-            html = file.read()
-        return html
+        self.db = db
+        self.db.start()
 
     def hideConsole(self):
         cf.hideConsole()
-
+    
     def verify_keys(self):
         if cf.verify_keys():
             return True
@@ -43,13 +35,19 @@ class Functions():
         return False
 
 
-class Comunication_Fn():
+class Functions_Pipe():
 
-    def __init__(self) -> None:
-        pass
+    @staticmethod
+    @eel.expose
+    def pass_html(path):
+        path = os.path.join(os.getcwd(),'frontend',path,path+'.html')
+        with codecs.open(path,'r','utf-8') as file:
+            html = file.read()
+        return html
 
-
-    def create_and_return(self,data):
+    @staticmethod
+    @eel.expose
+    def create_and_return(data):
         client = fn.Client()
         ans = client.add_client(data)
         ans2 = client.get_client(1)
@@ -57,12 +55,5 @@ class Comunication_Fn():
 
 
 if __name__=='__main__':
-    
-    func = Functions()
-    eel.expose(func.pass_html)
-
-    comm = Comunication_Fn()
-    eel.expose(comm.create_and_return)
-    
-    app = Main()   
+    app = Main()
     app.start_app()
