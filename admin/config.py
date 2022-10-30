@@ -10,7 +10,8 @@ def hideConsole():
         ctypes.windll.user32.ShowWindow(whnd,0)
 
 def verify_keys():
-   filename = os.path.join(os.getcwd(),"config" ,"keys.json")
+   root = os.path.dirname(os.path.realpath(__file__))
+   filename = os.path.join(root ,"keys.json")
    with open(filename,"r") as file_json:
       data = json.load(file_json)
       id_pc = str(str(uuid.getnode()).encode("utf-8").decode("utf-8"))
@@ -21,7 +22,8 @@ def verify_keys():
          return False
 
 def new_key(password):
-   filename = os.path.join(os.getcwd(),"config", "keys.json")
+   root = os.path.dirname(os.path.realpath(__file__))
+   filename = os.path.join(root, "keys.json")
    with open(filename,"r") as file_json:
       data = json.load(file_json)
       pass1 = data["password"]

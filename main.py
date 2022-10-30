@@ -1,6 +1,6 @@
 import eel
 import backend.functions as fn
-import config.config as cf
+import admin.config as cf
 import codecs
 import os
 import backend.database.base as db
