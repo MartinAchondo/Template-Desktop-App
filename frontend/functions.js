@@ -1,5 +1,6 @@
 
-function mensaje(texto,tipo){
+eel.expose(window_message)
+function window_message(texto,tipo){
 
     if (texto == true) {
       texto = 'true';

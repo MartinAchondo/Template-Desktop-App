@@ -1,15 +1,13 @@
 
 $('document').ready(()=>{
 
-    $('#home').click(function(){
-        let inicio_obj = new Pages(this.id);
+    $('.nav-item').click(function(){
+        page_obj = new Pages(this.id);
+        page_obj.askPage();
     });
-
-    eel.expose(changer)
-    function changer(){
-        $('h1').html('soooooooos')
-    }
-
+    window.api.receive('ans_pass_html', async(data)=>{
+        page_obj.changePage(data)
+    })
 })
 
 class Pages {
@@ -18,11 +16,14 @@ class Pages {
         Pages.deleteActive();
         this.page = page;
         this.container = document.querySelector('.container');
-        this.changePage();
     }
 
-    async changePage(){
-        this.container.innerHTML = await eel.pass_html(this.page)();
+    askPage(){
+        window.api.send('pass_html',this.page)
+    }
+
+    async changePage(html_data){
+        this.container.innerHTML = html_data;
         let script = document.createElement('script');
         script.src = `${this.page}/${this.page}.js`;
         script.classList.add('active');
@@ -40,7 +41,6 @@ class Pages {
             this.parentNode.removeChild(this)
         })
     }
-
-
 }
+
 

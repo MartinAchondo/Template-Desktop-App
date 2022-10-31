@@ -60,6 +60,7 @@ class Functions_Pipe():
         client = fn.Client()
         ans = client.add_client(data)
         ans2 = client.get_client(1)
+        eel.window_message('Elemento creado')
         return ans2
 
 

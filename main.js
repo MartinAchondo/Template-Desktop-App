@@ -39,6 +39,13 @@ app.on('activate', function () {
 
 /////////////////////////////////////////////////////////////
 
+ipcMain.on('pass_html', (event,data)=>{
+  path_file = path.join(__dirname,'frontend',data,data+'.html')
+  fs.readFile(path_file,'utf-8', (err,html)=>{
+    mainWindow.webContents.send("ans_pass_html", html);
+  }) 
+});
+
 ipcMain.on('ask_path_toMain',(event,options)=>{
     dialog.showOpenDialog(mainWindow, options).then(result =>{
       mainWindow.webContents.send("ans_ask_path", result);
