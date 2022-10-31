@@ -8,3 +8,11 @@ deactivate
 pip freeze > requirements.txt
 
 pip install eel
+
+##################################
+
+npm init
+
+npm install --save-dev electron
+
+npm install --save-dev electron-packager

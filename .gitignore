@@ -5,3 +5,5 @@ keys.json
 .venv
 /.base
 /.vscode
+node_modules
+.node_modules

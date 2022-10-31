@@ -9,6 +9,7 @@ class Main():
 
     def __init__(self):
         self.eel = eel
+        self.window = 'dev-electron'
         self.eel.init('frontend')
 
     def start_app(self):
@@ -16,7 +17,15 @@ class Main():
         ans = self.verify_keys()
         if ans:
             self.hideConsole()
+            self.start_window()
+
+    def start_window(self):
+        if self.window == 'eel':
             self.eel.start('index.html')
+        elif self.window == 'dev-electron':
+            self.eel.start('index.html', mode='custom', cmdline_args=['node_modules/electron/dist/electron.exe', '.'])
+        elif self.window == 'production':
+            self.eel.start('index.html', mode='custom', cmdline_args=['app/window/gestor-dominga.exe', '.'])
 
     def start_database(self):
         self.db = db

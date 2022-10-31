@@ -1,0 +1,24 @@
+{
+  "name": "eel-app-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . --icon 'src/icon/favicon.ico'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MartinAchondo/Template-EEL-App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MartinAchondo/Template-EEL-App/issues"
+  },
+  "homepage": "https://github.com/MartinAchondo/Template-EEL-App#readme",
+  "devDependencies": {
+    "electron": "^21.2.0",
+    "electron-packager": "^17.0.0"
+  }
+}
