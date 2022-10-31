@@ -1,13 +1,13 @@
 
 $('document').ready(()=>{
 
-    $('.nav-item').click(function(){
-        page_obj = new Pages(this.id);
+    $('.nav-item').click(async function(){
+        let page_obj = new Pages(this.id);
         page_obj.askPage();
+        window.api.receive('ans_pass_html', async(data)=>{
+            page_obj.changePage(data)
+        })
     });
-    window.api.receive('ans_pass_html', async(data)=>{
-        page_obj.changePage(data)
-    })
 })
 
 class Pages {
