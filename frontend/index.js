@@ -1,12 +1,9 @@
 
-$('document').ready(()=>{
+$('document').ready(async ()=>{
 
     $('.nav-item').click(async function(){
         let page_obj = new Pages(this.id);
-        page_obj.askPage();
-        window.api.receive('ans_pass_html', async(data)=>{
-            page_obj.changePage(data)
-        })
+        await page_obj.askPage();
     });
 })
 
@@ -18,8 +15,11 @@ class Pages {
         this.container = document.querySelector('.container');
     }
 
-    askPage(){
-        window.api.send('pass_html',this.page)
+    async askPage(){
+        window.api.send('pass_html',this.page);
+        window.api.receive('ans_pass_html', async(html_data)=>{
+            this.changePage(await html_data)   
+        })
     }
 
     async changePage(html_data){

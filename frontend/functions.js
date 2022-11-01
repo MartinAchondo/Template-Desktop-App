@@ -18,3 +18,10 @@ function window_message(texto,tipo){
     window.api.send("mensaje_toMain",options);
     // error, info, warning
   };
+
+// async function ask_toMain(channel,data){
+//   window.api.send(channel,data);
+//   await window.api.receive('ans_'+channel, async(ans)=>{
+//       return ans
+//   })  
+// }
