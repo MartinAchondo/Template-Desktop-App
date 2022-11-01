@@ -25,7 +25,7 @@ class Main():
         elif self.window == 'dev-electron':
             self.eel.start('index.html', mode='custom', cmdline_args=['node_modules/electron/dist/electron.exe', '.'])
         elif self.window == 'production':
-            self.eel.start('index.html', mode='custom', cmdline_args=['app/window/gestor-dominga.exe', '.'])
+            self.eel.start('index.html', mode='custom', cmdline_args=['app/window_exe/main_window.exe', '.'])
 
     def start_database(self):
         self.db = db
