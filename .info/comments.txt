@@ -5,6 +5,8 @@ python -m venv .venv
 .\\.venv\Scripts\activate.ps1
 deactivate
 
+pip install -r /path/to/requirements.txt
+
 pip freeze > requirements.txt
 
 pip install eel
